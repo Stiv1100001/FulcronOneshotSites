@@ -1,0 +1,87 @@
+.old-font {
+    font-family: 'Old Standard TT', serif;
+}
+
+.monospaced {
+    font-family: monospace;
+}
+
+#narration {
+    background-color: #ffdd04;
+    background-image: url("https://www.transparenttextures.com/patterns/textured-paper.png");
+}
+
+
+.hover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1021;
+
+    background-color: black;
+    color: white;
+}
+
+.hover.invisible {
+    animation: blink 5s;
+}
+
+@keyframes blink {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    15% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    33% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.hover .cord {
+    position: absolute;
+    top: 0;
+    right: 10%;
+
+    width: 4px;
+    height: 200px;
+
+    border-radius: 2px;
+
+    background-color: white;
+
+    cursor: grab;
+
+    transition: all .1s;
+}
+
+.hover .cord:active {
+    height: 300px;
+}
+
+
+.hover img.lamp {
+    width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+}
+
+.hover img.lamp:hover {
+    fill: yellow;
+    color: yellow;
+}
