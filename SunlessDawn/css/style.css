@@ -1,87 +1,131 @@
+/* Import */
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+/* Body info */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.2rem;
+}
+
+/* Override */
+.navbar-light .navbar-toggler, button:focus:not(:focus-visible) {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Font utility */
 .old-font {
-    font-family: 'Old Standard TT', serif;
+    font-family: 'Cutive Mono', monospace;
 }
 
 .monospaced {
     font-family: monospace;
 }
 
+/* Generics */
+hr.my-hr {
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+img.separator {
+    filter: invert(100%);
+    width: 20rem;
+    margin: 0 auto;
+}
+
+.my-subtitle::after, .my-subtitle::before {
+    content: " ~ ";
+    color: white;
+}
+
+/* Main hover */
+.hover {
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1200;
+
+    transition: opacity 1s, visibility .5s;
+}
+
+.hover.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hover #switch {
+    top: -10px;
+    right: 20%;
+
+    cursor: grab;
+}
+
+.hover #cord {
+    width: 4px;
+    height: 200px;
+
+    transition: height .1s;
+}
+
+.hover #ball {
+    width: 15px;
+    height: 15px;
+
+    background-color: white;
+
+    border-radius: 50%;
+
+    transform: translate(-40%, -50%);
+}
+
+.hover #switch:active #cord {
+    height: 300px;
+}
+
+
+.hover #bulb {
+    left: 50%;
+    top: -24px;
+    width: 100px;
+    height: 100px;
+
+    transform: rotate(180deg) translateX(50%);
+    fill: black;
+
+    animation: flicker 1s infinite;
+}
+
+/* Main */
+
 #narration {
     background-color: #ffdd04;
     background-image: url("https://www.transparenttextures.com/patterns/textured-paper.png");
 }
 
-
-.hover {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 1021;
-
-    background-color: black;
-    color: white;
-}
-
-.hover.invisible {
-    animation: blink 5s;
-}
-
-@keyframes blink {
-    0% {
-        visibility: visible;
-        opacity: 1;
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: .99;
+        fill: yellow;
+        box-shadow:
+            -1px -1px 0 rgba(#fff, .4),
+            1px -1px 0 rgba(#fff, .4),
+            -1px 1px 0 rgba(#fff, .4),
+            1px 1px 0 rgba(#fff, .4),
+            0 -2px 8px,
+            0 0 2px,
+            0 0 5px #ff7e00,
+            0 0 15px #ff4444,
+            0 0 2px #ff7e00,
+            0 2px 3px #000;
     }
 
-    15% {
-        visibility: hidden;
-        opacity: 0;
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.4;
+        box-shadow: none;
     }
-
-    33% {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    100% {
-        visibility: hidden;
-        opacity: 0;
-    }
-}
-
-.hover .cord {
-    position: absolute;
-    top: 0;
-    right: 10%;
-
-    width: 4px;
-    height: 200px;
-
-    border-radius: 2px;
-
-    background-color: white;
-
-    cursor: grab;
-
-    transition: all .1s;
-}
-
-.hover .cord:active {
-    height: 300px;
-}
-
-
-.hover img.lamp {
-    width: 100px;
-    height: 100px;
-    transform: rotate(180deg);
-}
-
-.hover img.lamp:hover {
-    fill: yellow;
-    color: yellow;
 }
