@@ -107,6 +107,7 @@ img.separator {
     background-image: url("https://www.transparenttextures.com/patterns/textured-paper.png");
 }
 
+/* Special */
 @keyframes flicker {
     0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
         opacity: .99;
@@ -128,4 +129,17 @@ img.separator {
         opacity: 0.4;
         box-shadow: none;
     }
+}
+
+.bordered {
+    background: transparent;
+    padding: 0.5rem 0.5rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+
+    border: solid 2px #dddcd9;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 15px 255px;
 }
