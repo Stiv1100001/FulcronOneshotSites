@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,25 +15,125 @@
 
     <link rel="stylesheet" href="css/style.css" />
 
+     <!-- Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.common.dev.min.js"></script>
+
     <title>Il Palazzo dei Destini Incrociati - FulcronGRV</title>
   </head>
 
   <body>
-    <main class="container-fluid p-0">
-      <section id="welcome"></section>
-      <section id="test"></section>
+    <main id="app" class="container-fluid p-0">
+      <section id="video" class="bg-black d-flex justify-content-center">
+        <video controls autoplay>
+          <source src="video/IlPalazzodeiDestini.mp4" type="video/mp4" />
+        </video>
+      </section>
+      <section id="welcome">
+        <div id="title" class="p-3 d-flex flex-column align-items-center mb-3">
+          <span class="display-4">La Sinfonia dei Sette </span>
+          <span class="display-2">Il Palazzo dei Destini Incrociati</span>
+          <span class="display-6">23/24 Aprile 2022 </span>
+          <span class="display-6">Villa Achillini, Sasso Marconi (Bo)</span>
+        </div>
+      </section>
+      <section id="sinfonia" class="container mb-3">
+        <div class="row justify-content-center card-bg">
+          <div class="col-12 text-center">
+            <span class="display-3">La Sinfonia dei Sette</span>
+          </div>
+          <div class="col-8 border-bottom border-1 border-dark my-3"></div>
+          <div class="col-7 text-center">
+            <p class="fst-italic">
+              Così nacque Fulcron, l’Anello, e con esso le razze dei mortali che lo abitano. Ere dopo la sua creazione,
+              tanti sono i regni che i mortali hanno creato.
+            </p>
+            <button class="btn border border-1 mb-3" @click="popUp[0] = !popUp[0]">{{ popUp[0] ? 'Chiudi' : 'Espandi' }}</button>
+          </div>
+          <div class="col-6 text-center overflow-hidden expandable" :class="popUp[0] === true ? '' : 'h-0'">
+            <p>Sette furono gli Dei. Sette cantarono e così cantando crearono il Tutto.</p>
+            <p>
+              La prima Hava cantando si cavò dalle viscere il cielo e lo pose sopra alla terra, poi per sua volontà,
+              terra e cielo si inclinarono così da potersi incontrare.
+            </p>
+            <p>
+              Opera del secondo, Samudra, furono i cicli dei mari, della terra e delle moltitudine delle acque. Lei
+              costruì la grande scala da cui scende la pioggia.
+            </p>
+            <p>
+              Il terzo Yud’ah cantando, si assicurò che tutti avrebbero lavorato nel grande firmamento, affondò le mani
+              e i piedi nella terra e formò i metalli del sottosuolo.
+            </p>
+            <p>
+              Samajhadara, il quarto, mise la terra dove non vi era niente, poi soffiò il vento e poiché era sapiente,
+              lo chiamò spirito, perché in lui non vi era morte.
+            </p>
+            <p>
+              Il quinto Andhera creò la notte e la morte, creò il mondo degli inferi e li destinò a chi aveva veleno
+              nell'anima.
+            </p>
+            <p>
+              Opera di Mausama, il sesto, fu la crescita delle piante e degli animali, mutò il tempo atmosferico e mosse
+              la ruota nel tempo.
+            </p>
+            <p>
+              Dall'ultimo, chiamato Surya, uscì la prima luce, e la mantenne accesa in una sfera ardente che pose nel
+              cielo. <br />
+              Poi con la terra impastò il fango e ne uscì una forma umanoide, poi prese dalla sfera ardente un po della
+              luce che le aveva posto dentro e la posò su queste forme inanimate, così facendo nacque l'anima
+              primordiale che si irradiò attraverso il corpo sprigionando l'aurea, e così gli donò la vita.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="ambientazione" class="container mb-3">
+        <div class="row justify-content-center card-bg">
+          <div class="col-12 text-center">
+            <span class="display-3">La Nostra Ambientazione</span>
+          </div>
+          <div class="col-8 border-bottom border-1 border-dark my-3"></div>
+          <div class="col-7 text-center">
+            <button class="btn border border-1 mb-3" @click="togglePopUp(1)">{{ popUp[1] ? 'Chiudi' : 'Espandi' }}</button>
+          </div>
+          <div class="col-6 text-center overflow-hidden expandable" :class="popUp[1] ? '' : 'h-0'">
+            <p>La nostra ambientazione di divide in cinque macro regioni, ognuna con caratteristiche e peculiarità proprie. <br>
+               Non preoccuparti se non conosci a menadito l’ambientazione di Fulcron: ad ogni PGOS verranno date 
+               le informazioni necessarie per giocare senza problemi e, se vorrai approfondire, potrai sempre consultare la nostra Wikia, disponibile sul nostro sito.
+            </p>
+            <p>
+              Il Nord, ispirato all’Europa del basso medioevo, è composto da una grande varietà di Regni. Tra i più significativi ricordiamo il Regno di Ilshaka, retto dal grande sovrano guerriero Nymbra Shoot, un re ormai molto anziano che fu decisivo nel mantenere il Nord unito in molte delle guerre del passato, e Lungacosta, regno affacciato sul mare governato da una regina ambiziosa, Elaine Moonsharp.
+            </p>
+            <p>
+              L’Est, ispirato alle grandi civiltà asiatiche e nordafricane, l’Est è suddiviso in tre grandi regioni. Verso nord troviamo le Città Libere del Deserto, che si governano in autonomia, Tra di esse spicca Partaros, da cui si è originato il grande e potente Ordine dei Guaritori. Nelle Terre Verdi di Jotai sorge invece l’Impero dei Dodici Fiori, attualmente governato dall’autoproclamatosi imperatore Doraan. Infine, il sultanato degli Arak, composto da nomadi del deserto governati da un ricco e potente sultano.
+            </p>
+            <p>
+              Il Sud, ispirato alla cultura greca e romana del mondo classico. Una grande muraglia si estendeva lungo tutto il confine meridionale del regno e lo separava dai Diaforos, creature orribili e bellicose. Qualche anno fa il muro è crollato, stravolgendo ogni equilibrio geopolitico della zona. Attualmente il Sud è frammentato e diviso: l’Antico Regno cerca di resistere, mentre una nuova entità territoriale, Nea Imera, è sorta con la speranza di unire uomini e Diaforos. Intere regioni sono perdute nell’anarchia e nel disordine mentre nelle Tre Gemme del Sud, ricche città di traffici e commerci, i mercanti hanno approfittato della situazione per prendere il potere.
+            </p>
+            <p>
+              L’Ovest, ispirato alle americhe precolombiane. Grandi foreste vergini si estendono per tutto il territorio e le grandi potenze di Fulcron competono per colonizzare la zona. Grandi tribù di guerrieri nomadi vivono in queste terre.
+            </p>
+            <p>
+              Infine, il Mare Interno, il grande oceano che si trova al centro di Fulcron e che gli conferisce la caratteristica forma ad Anello. Molti sono i pirati che solcano questi mari, dato che nessun regnante è mai stato abbastanza potente da estendere il suo controllo su di essi. Nove sono i più grandi pirati che si autoproclamano Nobili, guidati, se così si può dire, dal Re Bambino, mentre nel Mare di Ossa, nascosta e sempre in agguato Mimì Lorane, la piratessa in esilio attende il momento esatto in cui poter vendicarsi e diventare Regina dei Mari.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="palazzo"></section>
+      <section id="grv"></section>
+      <section id="regole"></section>
+      <section id="speciali"></section>
+      <section id="location"></section>
     </main>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
       integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>
-    <script src="js/main.js"></script>
-  </body>
+    ></script> -->
+   <script src="js/main.js"></script>
 </html>

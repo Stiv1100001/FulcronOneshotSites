@@ -1,30 +1,37 @@
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    overflow: hidden;
+    background-color: rgba(255, 233, 206, 0.788);
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+#video {
+    max-width: 100vw;
     height: 100vh;
 }
 
-main {
-    -ms-scroll-snap-type: y mandatory;
-    scroll-snap-type: y mandatory;
-    scroll-snap-points-y: repeat(100vh);
-    overflow: scroll;
-    height: 100vh;
+video {
+    width: 100%;
 }
 
-section {
-    height: 100vh;
-    scroll-snap-align: start;
+.card-bg {
+    background: linear-gradient(90deg, rgba(255, 233, 206, 0.78) 0%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 233, 206, 1) 100%);
 }
 
-#welcome {
-    background-image: url('../img/01.png');
-    background-size: cover;
+.expandable {
+    transition: max-height linear .2;
 }
 
-#test {
-    background-color: rebeccapurple;
+.h-0 {
+    max-height: 0;
 }
